@@ -18,7 +18,7 @@
   <!---start-header---->
   <div class="header">
     <div class="logo">
-      <h1><a href="http://localhost:8080/devlifestatistic/start">Ohh</a></h1>
+      <h1><a href="/devlifestatistic/start">Ohh</a></h1>
     </div>
   </div>
   <!---End-header---->
@@ -27,7 +27,7 @@
 
     <img src="/images/error-img.png" title="error" />
     <p><span><label>O</label>hh.....</span>You Requested the page that is no longer There.</p>
-    <a href="http://localhost:8080/devlifestatistic/start">Back To Home</a>
+    <a href="/devlifestatistic/start">Back To Home</a>
 
   </div>
   <!--End-Cotent------>
