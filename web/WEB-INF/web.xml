@@ -5,20 +5,20 @@
          version="3.1">
 
     <servlet>
-        <servlet-name>MainServlet</servlet-name>
-        <servlet-class>ru.devlifestatistic.servlets.MainServlet</servlet-class>
+        <servlet-name>EntriesServlet</servlet-name>
+        <servlet-class>ru.devlifestatistic.servlets.EntriesServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>MainServlet</servlet-name>
-        <url-pattern>/devlifestatistic/start</url-pattern>
+        <servlet-name>EntriesServlet</servlet-name>
+        <url-pattern>/devlifestatistic/entries</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>main.jsp</servlet-name>
-        <jsp-file>/templates/main.jsp</jsp-file>
+        <servlet-name>entries.jsp</servlet-name>
+        <jsp-file>/templates/entries.jsp</jsp-file>
     </servlet>
     <servlet-mapping>
-        <servlet-name>main.jsp</servlet-name>
-        <url-pattern>/devlifestatistic/main.jsp</url-pattern>
+        <servlet-name>entries.jsp</servlet-name>
+        <url-pattern>/devlifestatistic/entries.jsp</url-pattern>
     </servlet-mapping>
 
     <servlet>

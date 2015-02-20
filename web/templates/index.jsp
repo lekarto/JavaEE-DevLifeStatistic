@@ -6,7 +6,7 @@
   </head>
   <body>
     Hello. This is the main page of our project. As you see we just start it, so we haven't so much time for design.<br />
-    Now you can see only page with total count of entries <a href="/devlifestatistic/start">here</a>.<br />
+    Now you can see only page with total count of entries <a href="/devlifestatistic/entries">here</a>.<br />
     Have a nice day :-)
   </body>
 </html>
