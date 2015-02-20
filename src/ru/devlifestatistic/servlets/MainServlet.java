@@ -11,7 +11,7 @@ public class MainServlet extends javax.servlet.http.HttpServlet {
     }
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        RequestDispatcher view = request.getRequestDispatcher("/templates/index.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/templates/main.jsp");
         request.setAttribute("totalEntries", DLParser.getTotalCount());
         view.forward(request, response);
     }

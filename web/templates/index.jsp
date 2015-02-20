@@ -1,12 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title></title>
+    <title>DevelopersLife Statistic</title>
     <link rel="stylesheet" type="text/css" href="../css/main.css">
   </head>
   <body>
-  <h1 align="center" >Хоть это запилил))</h1>
-  Total count of entries =
-    <%=  ((Integer)request.getAttribute("totalEntries")==null)? 0 : (Integer)request.getAttribute("totalEntries") %>
+    Hello. This is the main page of our project. As you see we just start it, so we haven't so much time for design.<br />
+    Now you can see only page with total count of entries <a href="/devlifestatistic/start">here</a>.<br />
+    Have a nice day :-)
   </body>
 </html>
