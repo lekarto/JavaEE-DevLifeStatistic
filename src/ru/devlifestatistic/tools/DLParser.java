@@ -58,9 +58,9 @@ public class DLParser {
         ArrayList<Entry> entries = new ArrayList<Entry>();
         while (pageNum >= 0) {
             if ((pageNum % 20) == 0) {
-                System.out.println(pageNum*50);
+                System.out.println(pageNum * 50);
             }
-            String jsonString = getResponseForGetRequest("http://developerslife.ru/latest/"+pageNum+"?pageSize=50&json=true");
+            String jsonString = getResponseForGetRequest("http://developerslife.ru/latest/" + pageNum + "?pageSize=50&json=true");
             pageNum++;
             try {
                 if (jsonString.length() == 0) {
@@ -154,7 +154,7 @@ public class DLParser {
             try {
                 for (int i = _rFrom; i <= _rUntil; i++) {
 //                    if ((i % 100) == 0) System.out.println(i);
-                    String jsonString = getResponseForGetRequest("http://developerslife.ru/"+i+"?json=true");
+                    String jsonString = getResponseForGetRequest("http://developerslife.ru/" + i + "?json=true");
                     if (jsonString.length() == 0) {
                         break;
                     }
@@ -182,23 +182,24 @@ public class DLParser {
     public static ArrayList<Entry> getEntryInRange(int rFrom, int rUntil, int threadCount) {
         ArrayList<Entry> entries = new ArrayList<Entry>();
 
-        int _rFrom = ((rFrom >= 0)? rFrom : 0);
-        int _rUntil = ((rUntil >= 0)? rUntil : 0);
+        int _rFrom = ((rFrom >= 0) ? rFrom : 0);
+        int _rUntil = ((rUntil >= 0) ? rUntil : 0);
         if (_rFrom > _rUntil) {
             int i = _rFrom;
             _rFrom = _rUntil;
             _rUntil = i;
         }
-        int threadCnt = ((threadCount > 0)? threadCount : 1);
+        int threadCnt = ((threadCount > 0) ? threadCount : 1);
         ExecutorService pool = Executors.newFixedThreadPool(threadCnt);
         ArrayList<Future<CopyOnWriteArrayList<Entry>>> future = new ArrayList<Future<CopyOnWriteArrayList<Entry>>>(threadCnt);
         int step = (_rUntil - _rFrom) / threadCnt;
         for (int i = 1; i <= threadCnt; i++) {
             future.add(pool.submit(
                     new EntryThread(_rFrom + step * (i - 1),
-                                   ((i == threadCnt) ? _rUntil : (_rFrom + step * i - 1)))));
+                            ((i == threadCnt) ? _rUntil : (_rFrom + step * i - 1)))));
         }
-        while (isThreadsAvaliable(future)) { }
+        while (isThreadsAvaliable(future)) {
+        }
         try {
             for (Future<CopyOnWriteArrayList<Entry>> fut : future) {
                 entries.addAll(fut.get());
@@ -220,7 +221,7 @@ public class DLParser {
         if (entryNum < 0) {
             return comments;
         }
-        String jsonString = getResponseForGetRequest("http://developerslife.ru/comments/entry/"+entryNum);
+        String jsonString = getResponseForGetRequest("http://developerslife.ru/comments/entry/" + entryNum);
         try {
             if (jsonString.length() == 0) {
                 throw new Exception("developerslife.ru have unkown error");
@@ -238,7 +239,7 @@ public class DLParser {
                     comments.add(objectMapper.readValue(comm.get(i).toString(), Comment.class));
                 }
             } else {
-                System.out.println(entryNum+": "+answer.get(ERROR).toString());
+                System.out.println(entryNum + ": " + answer.get(ERROR).toString());
             }
         } catch (JsonProcessingException e) {
         } catch (IOException e) {
@@ -246,4 +247,35 @@ public class DLParser {
         }
         return comments;
     }
+
+    public static Entry getEntry(int num){
+
+        Entry entry = new Entry();
+
+        String jsonString = getResponseForGetRequest("http://developerslife.ru/" + num + "?json=true");
+
+        try {
+            if (jsonString.length() == 0) {
+                throw new Exception("developerslife.ru have unkown error");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+
+                JsonNode answer = objectMapper.readTree(jsonString);
+                if (!answer.has(ERROR)) {
+
+                    entry = (objectMapper.readValue(jsonString, Entry.class));
+
+                }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return entry;
+    }
+
 }
