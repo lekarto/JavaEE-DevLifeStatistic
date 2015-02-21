@@ -1,6 +1,7 @@
 package ru.devlifestatistic.model;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -36,7 +37,7 @@ public class Entry implements Serializable {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        this.description = changeWindows1251ToUTF8(description);
     }
 
     public Integer getVotes() {
@@ -52,7 +53,7 @@ public class Entry implements Serializable {
     }
 
     public void setAuthor(String author) {
-        this.author = author;
+        this.author = changeWindows1251ToUTF8(author);
     }
 
     public Date getDate() {
@@ -99,5 +100,13 @@ public class Entry implements Serializable {
 
     public void setEmbedId(String embedId) {
         this.embedId = embedId;
+    }
+
+    private String changeWindows1251ToUTF8(String cp1251) {
+        try {
+            return new String(cp1251.getBytes("windows-1251"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return cp1251;
+        }
     }
 }
