@@ -249,33 +249,27 @@ public class DLParser {
     }
 
     public static Entry getEntry(int num){
-
         Entry entry = new Entry();
 
         String jsonString = getResponseForGetRequest("http://developerslife.ru/" + num + "?json=true");
-
         try {
             if (jsonString.length() == 0) {
                 throw new Exception("developerslife.ru have unkown error");
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return entry;
         }
 
         ObjectMapper objectMapper = new ObjectMapper();
         try {
-
-                JsonNode answer = objectMapper.readTree(jsonString);
-                if (!answer.has(ERROR)) {
-
-                    entry = (objectMapper.readValue(jsonString, Entry.class));
-
-                }
-
+            JsonNode answer = objectMapper.readTree(jsonString);
+            if (!answer.has(ERROR)) {
+                entry = (objectMapper.readValue(jsonString, Entry.class));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
         return entry;
     }
-
 }
