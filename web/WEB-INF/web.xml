@@ -12,6 +12,7 @@
         <servlet-name>EntriesServlet</servlet-name>
         <url-pattern>/devlifestatistic/entries</url-pattern>
     </servlet-mapping>
+
     <servlet>
         <servlet-name>entries.jsp</servlet-name>
         <jsp-file>/templates/entries.jsp</jsp-file>
@@ -19,6 +20,24 @@
     <servlet-mapping>
         <servlet-name>entries.jsp</servlet-name>
         <url-pattern>/devlifestatistic/entries.jsp</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CommentsOfEntryServlet</servlet-name>
+        <servlet-class>ru.devlifestatistic.servlets.CommentsOfEntryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentsOfEntryServlet</servlet-name>
+        <url-pattern>/devlifestatistic/comments</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>commetsOfEntry.jsp</servlet-name>
+        <jsp-file>/templates/commetsOfEntry.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>commetsOfEntry.jsp</servlet-name>
+        <url-pattern>/devlifestatistic/commetsOfEntry.jsp</url-pattern>
     </servlet-mapping>
 
     <servlet>
