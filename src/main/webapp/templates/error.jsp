@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>I`m sorry</title>
-  <link href="/css/style.css" rel="stylesheet" type="text/css"  media="all" />
+  <link href="//css/style.css" rel="stylesheet" type="text/css"  media="all" />
 </head>
 <body>
 
@@ -25,7 +25,7 @@
   <!--start-content------>
   <div class="content">
 
-    <img src="/images/error-img.png" title="error" />
+    <img src="//images/error-img.png" title="error" />
     <p><span><label>O</label>hh.....</span>You Requested the page that is no longer There.</p>
     <a href="/devlifestatistic/start">Back To Home</a>
 

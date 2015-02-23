@@ -10,35 +10,19 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>EntriesServlet</servlet-name>
-        <url-pattern>/devlifestatistic/entries</url-pattern>
+        <url-pattern>/entries</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>entries.jsp</servlet-name>
-        <jsp-file>/templates/entries.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>entries.jsp</servlet-name>
-        <url-pattern>/devlifestatistic/entries.jsp</url-pattern>
-    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
 
-    <servlet>
-        <servlet-name>index.jsp</servlet-name>
-        <jsp-file>/templates/index.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>index.jsp</servlet-name>
-        <url-pattern>/devlifestatistic/index.jsp</url-pattern>
-        <url-pattern>/devlifestatistic/index</url-pattern>
-    </servlet-mapping>
-
-    <error-page>
+    <!--<error-page>
         <exception-type>java.lang.Throwable</exception-type>
         <location>/templates/error.jsp</location>
     </error-page>
-
     <error-page>
         <error-code>404</error-code>
         <location>/templates/error.jsp</location>
-    </error-page>
+    </error-page>-->
 
 </web-app>
