@@ -1,7 +1,7 @@
-##  Statistic for developerslife.java.ru
+##  Statistic for developerslife.ru
 
 **Target of this project is:**
- - create independent statistic for entries, comments, users of developerslife.java.ru portal
+ - create independent statistic for entries, comments, users of developerslife.ru portal
  - gain experience with JavaEE technology
  - improve experience with SQL.
  
