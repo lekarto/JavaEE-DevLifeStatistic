@@ -4,3 +4,64 @@ body {
 .error {
     text-align: center; /* Выравнивание по центру */
 }
+.wrapper {
+    width: 80%;
+    margin: 0 auto;
+}
+.header {
+    display: -moz-box;
+    -moz-box-orient: horizontal;
+    -moz-box-pack: center;
+    -moz-box-align: center;
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    -webkit-box-pack: center;
+    -webkit-box-align: center;
+    margin-bottom: 20px;
+}
+/*    MENU    */
+.menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+ul.menu {
+    padding: 0;
+    margin: 5px auto;
+    width: inherit;
+}
+.menu li {
+    position: relative;
+    display: inline-block;
+    font-family: arial, sans-serif;
+    font-size: 15px;
+    font-weight: bold;
+    margin: 4px;
+    box-shadow: 0 5px 10px;
+    min-width: 100px;
+    text-align: center;
+}
+.menu a {
+    display: block;
+    padding: 8px 10px;
+    color: white;
+    background: #0099ff;
+    text-decoration: none;
+}
+.menu a:hover {
+    color: #0099ff;
+    background: white;
+}
+/*    LOGO    */
+.logo {
+    font-family: 'Arial', sans-serif;
+    font-size: 30px;
+    vertical-align: middle;
+}
+.logo a {
+    text-decoration: none;
+    color: darkblue;
+}
+.logo img {
+    margin-right: 5px;
+}
