@@ -1,6 +1,7 @@
 package ru.devlifestatistic.model;
 
 import java.io.Serializable;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -38,7 +39,7 @@ public class Comment implements Serializable {
     }
 
     public void setText(String text) {
-        this.text = text;
+        this.text = changeWindows1251ToUTF8(text);
     }
 
     public Date getDate() {
@@ -116,5 +117,13 @@ public class Comment implements Serializable {
 
     public void setEditable(Boolean editable) {
         this.editable = editable;
+    }
+
+    private String changeWindows1251ToUTF8(String cp1251) {
+        try {
+            return new String(cp1251.getBytes("windows-1251"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return cp1251;
+        }
     }
 }

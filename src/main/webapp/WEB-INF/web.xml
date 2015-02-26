@@ -10,8 +10,18 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>EntriesServlet</servlet-name>
-        <url-pattern>/entries</url-pattern>
+		<url-pattern>/entries</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>CommentsOfEntryServlet</servlet-name>
+        <servlet-class>ru.devlifestatistic.servlets.CommentsOfEntryServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CommentsOfEntryServlet</servlet-name>
+        <url-pattern>/comments</url-pattern>
+    </servlet-mapping>    
+           
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
