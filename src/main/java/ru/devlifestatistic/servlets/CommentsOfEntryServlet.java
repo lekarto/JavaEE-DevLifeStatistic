@@ -11,16 +11,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-/**
- * Created by Mine on 22.02.2015.
- */
 public class CommentsOfEntryServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher view = request.getRequestDispatcher("/templates/commetsOfEntry.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/templates/commentsOfEntry.jsp");
         ArrayList<Comment> comments = DLParser.getCommentsForEntry(12622);
         request.setAttribute("comments", comments);
         view.forward(request, response);
