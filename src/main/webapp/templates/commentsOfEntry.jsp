@@ -1,5 +1,5 @@
 <%@ page import="ru.devlifestatistic.model.Comment" %>
-<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -10,7 +10,7 @@
 <body>
   <div class="wrapper">
   <jsp:include page="/templates/header.jsp" />
-    <% ArrayList<Comment> comments = (ArrayList<Comment>)request.getAttribute("comments");%>
+    <% List<Comment> comments = (List<Comment>)request.getAttribute("comments");%>
     <% if ((comments == null) || (comments.size() == 0)){ %>
       No comments in this entry.
     <%}%>

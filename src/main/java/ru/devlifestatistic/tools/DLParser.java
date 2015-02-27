@@ -15,6 +15,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.*;
 
 public class DLParser {
@@ -53,9 +54,9 @@ public class DLParser {
         return result.toString();
     }
 
-    public static ArrayList<Entry> getAllEntries() {
+    public static List<Entry> getAllEntries() {
         int pageNum = 0;
-        ArrayList<Entry> entries = new ArrayList<Entry>();
+        List<Entry> entries = new ArrayList<Entry>();
         while (pageNum >= 0) {
             if ((pageNum % 20) == 0) {
                 System.out.println(pageNum * 50);
@@ -170,7 +171,7 @@ public class DLParser {
         }
     }
 
-    private static Boolean isThreadsAvaliable(ArrayList<Future<CopyOnWriteArrayList<Entry>>> futures) {
+    private static Boolean isThreadsAvaliable(List<Future<CopyOnWriteArrayList<Entry>>> futures) {
         for (Future fut : futures) {
             if (!fut.isDone()) {
                 return true;
@@ -179,8 +180,8 @@ public class DLParser {
         return false;
     }
 
-    public static ArrayList<Entry> getEntryInRange(int rFrom, int rUntil, int threadCount) {
-        ArrayList<Entry> entries = new ArrayList<Entry>();
+    public static List<Entry> getEntryInRange(int rFrom, int rUntil, int threadCount) {
+        List<Entry> entries = new ArrayList<Entry>();
 
         int _rFrom = ((rFrom >= 0) ? rFrom : 0);
         int _rUntil = ((rUntil >= 0) ? rUntil : 0);
@@ -191,7 +192,7 @@ public class DLParser {
         }
         int threadCnt = ((threadCount > 0) ? threadCount : 1);
         ExecutorService pool = Executors.newFixedThreadPool(threadCnt);
-        ArrayList<Future<CopyOnWriteArrayList<Entry>>> future = new ArrayList<Future<CopyOnWriteArrayList<Entry>>>(threadCnt);
+        List<Future<CopyOnWriteArrayList<Entry>>> future = new ArrayList<Future<CopyOnWriteArrayList<Entry>>>(threadCnt);
         int step = (_rUntil - _rFrom) / threadCnt;
         for (int i = 1; i <= threadCnt; i++) {
             future.add(pool.submit(
@@ -212,12 +213,12 @@ public class DLParser {
         return entries;
     }
 
-    public static ArrayList<Entry> getEntryInRange(int rFrom, int rUntil) {
+    public static List<Entry> getEntryInRange(int rFrom, int rUntil) {
         return getEntryInRange(rFrom, rUntil, 1);
     }
 
-    public static ArrayList<Comment> getCommentsForEntry(int entryNum) {
-        ArrayList<Comment> comments = new ArrayList<Comment>();
+    public static List<Comment> getCommentsForEntry(int entryNum) {
+        List<Comment> comments = new ArrayList<Comment>();
         if (entryNum < 0) {
             return comments;
         }

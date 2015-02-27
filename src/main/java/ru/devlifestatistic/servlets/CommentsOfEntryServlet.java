@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 @WebServlet(name = "CommentsOfEntryServlet", urlPatterns = "/comments")
 public class CommentsOfEntryServlet extends HttpServlet {
@@ -20,7 +21,7 @@ public class CommentsOfEntryServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         RequestDispatcher view = request.getRequestDispatcher("/templates/commentsOfEntry.jsp");
-        ArrayList<Comment> comments = DLParser.getCommentsForEntry(12622);
+        List<Comment> comments = DLParser.getCommentsForEntry(12622);
         request.setAttribute("comments", comments);
         view.forward(request, response);
     }
