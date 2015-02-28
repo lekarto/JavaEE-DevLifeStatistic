@@ -1,3 +1,8 @@
+<%
+  String[][] buttonsLinks = {{"/entries", "Entries"}, 
+                             {"/comments", "Comments"}};
+  String urlPattern = (request.getAttribute("urlPattern") == null) ? "": (String)request.getAttribute("urlPattern");
+%>
 <div class="header">
   <div class="box logo">
     <a href="/devlifestatistic">
@@ -5,7 +10,10 @@
     </a>
   </div>
   <ul class="box menu">
-    <li><a href="/devlifestatistic/entries">Entries</a></li>
-    <li><a href="/devlifestatistic/comments">Comments</a></li>
+    <%
+      for (String[] s : buttonsLinks) { %>
+        <li><a <%=(urlPattern.equals(s[0]))?"class=\"activeButton\"":""%> href="/devlifestatistic<%=s[0]%>"><%=s[1]%></a></li>
+    <%}%>
+    
   </ul>
 </div>

@@ -11,14 +11,13 @@ import java.io.IOException;
 
 @WebServlet(name = "EntriesServlet", urlPatterns = "/entries")
 public class EntriesServlet extends javax.servlet.http.HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        doGet(request, response);
-    }
+    private final String URL_PATTERN = "/entries";
 
-    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         RequestDispatcher view = request.getRequestDispatcher("/templates/entries.jsp");
         Entry entry = DLParser.getEntry(94);
         request.setAttribute("entry", entry);
+        request.setAttribute("urlPattern", URL_PATTERN);
         view.forward(request, response);
     }
 }

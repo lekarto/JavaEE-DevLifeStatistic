@@ -51,7 +51,7 @@ ul.menu {
     background: #0099ff;
     text-decoration: none;
 }
-.menu a:hover {
+.menu a:hover, a.activeButton {
     color: #0099ff;
     background: white;
 }
