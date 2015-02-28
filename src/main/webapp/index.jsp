@@ -4,7 +4,19 @@
     <title>DevelopersLife Statistic</title>
     <link rel="shortcut icon" href="/devlifestatistic/images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/devlifestatistic/css/main.css">
+    <script src="/devlifestatistic/libs/jQuery/jquery-1.11.2.min.js"></script>
+    <script>
+      $( document ).ready(function() {
+        console.log( "ready!" );
+        console.log( $(".wrapper").height() );
+        console.log( $(document).height() );
+        if ($(".wrapper").height() < $(document).height()){
+          $(".wrapper").height($(document).height() - 30);
+        }
+      });
+    </script>
   </head>
+
   <body>
     <div class="wrapper">
     <jsp:include page="templates/header.jsp" />
