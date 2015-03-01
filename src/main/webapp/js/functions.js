@@ -1,12 +1,16 @@
 $( document ).ready(function() {
-    if ($(".wrapper").height() < $(document).height()){
-        $(".wrapper").height($(document).height() - 30);
-    }
+    updateWrapperHeight();
     $("a.ajax").click(function(event){
         event.preventDefault();
         updatePageContent($(this).attr('href'));
     })
 });
+
+function updateWrapperHeight() {
+    if ($(".wrapper").height() < $(document).height()){
+        $(".wrapper").height($(document).height() - 30);
+    }
+}
 
 function menuButtonClick(btn, url) {
     $.ajax({
@@ -19,8 +23,8 @@ function menuButtonClick(btn, url) {
                 $('.pageContent').hide(300, function() {
                     $(this).html(html).animate({height: 'show'}, 500);
                 });
-                $(document).ready();
             }
+            updateWrapperHeight();
             $('ul.menu li a').removeClass('activeButton');
             $(btn).addClass('activeButton');
         }
@@ -38,8 +42,8 @@ function updatePageContent(url) {
                 $('.pageContent').hide(300, function() {
                     $(this).html(html).animate({height: 'show'}, 500);
                 });
-                $(document).ready();
             }
+            updateWrapperHeight();
             updateMenuButtons(url);
         }
     });
