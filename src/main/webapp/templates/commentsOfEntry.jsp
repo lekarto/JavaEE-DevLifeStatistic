@@ -3,15 +3,7 @@
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.util.Locale" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Comments of entry</title>
-    <link rel="shortcut icon" href="/devlifestatistic/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-</head>
-<body>
-  <div class="wrapper">
-  <jsp:include page="/templates/header.jsp" />
+
     <% List<Comment> comments = (List<Comment>)request.getAttribute("comments");%>
     <% if ((comments == null) || (comments.size() == 0)){ %>
       No comments in this entry.
@@ -32,5 +24,3 @@
         </div>
       <%}%>
         </div>
-</body>
-</html>

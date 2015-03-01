@@ -12,7 +12,7 @@
   <ul class="menu">
     <%
       for (String[] s : buttonsLinks) { %>
-        <li><a <%=(urlPattern.equals(s[0]))?"class=\"activeButton\"":""%> href="/devlifestatistic<%=s[0]%>"><%=s[1]%></a></li>
+        <li><a <%=(urlPattern.equals(s[0]))?"class=\"activeButton\"":""%> onclick="menuButtonClick(this, '/devlifestatistic<%=s[0]%>')"><%=s[1]%></a></li>
     <%}%>
     
   </ul>
