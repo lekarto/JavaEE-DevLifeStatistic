@@ -15,9 +15,13 @@ public class HibernateDaoFactory implements DaoFactory {
 
     private static SessionFactory buildSessionFactory() {
         Configuration configuration = new Configuration().addResource(HIBERNATE_CFG).configure();
+        System.out.println("Hibernate Configuration loaded:" + configuration);
         ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder().applySettings(
                 configuration.getProperties()).build();
-        return configuration.buildSessionFactory(serviceRegistry);
+        System.out.println("Hibernate serviceRegistry created:"+serviceRegistry);
+        SessionFactory sf = configuration.buildSessionFactory(serviceRegistry);
+        System.out.println("Hibernate SessionFactory created:"+sf);
+        return sf;
     }
 
 

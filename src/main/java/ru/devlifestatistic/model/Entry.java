@@ -1,5 +1,6 @@
 package ru.devlifestatistic.model;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
@@ -7,9 +8,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
+@Entity
+@Table(name="entry")
 public class Entry implements Serializable {
     private static final long serialVersionID = 8201337883209943936L;
 
+    @Id
+    @Column(name="primary_id")
+    @SequenceGenerator(name = "entry_id_generator", sequenceName = "entry_primary_id_seq")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "entry_id_generator")
+    private Integer primary_id;
     private Integer id;
     private String description;
     private Integer votes;

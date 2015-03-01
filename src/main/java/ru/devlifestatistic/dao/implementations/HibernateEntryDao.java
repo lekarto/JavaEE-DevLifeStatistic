@@ -20,6 +20,8 @@ public class HibernateEntryDao extends AbstractDao<Entry, Integer> implements En
         Session session = null;
         try {
             session = HibernateDaoFactory.getSessionFactory().openSession();
+            System.out.println("sessionFactory: "+HibernateDaoFactory.getSessionFactory());
+            System.out.println("session: "+session);
             session.beginTransaction();
             session.save(object);
             session.getTransaction().commit();

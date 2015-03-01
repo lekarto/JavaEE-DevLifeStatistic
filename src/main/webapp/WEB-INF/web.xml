@@ -16,5 +16,4 @@
         <error-code>404</error-code>
         <location>/templates/error.html</location>
     </error-page>
-
 </web-app>

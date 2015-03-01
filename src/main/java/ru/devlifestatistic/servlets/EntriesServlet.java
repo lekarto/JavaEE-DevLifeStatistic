@@ -1,5 +1,6 @@
 package ru.devlifestatistic.servlets;
 
+import ru.devlifestatistic.dao.implementations.HibernateDaoFactory;
 import ru.devlifestatistic.model.Entry;
 import ru.devlifestatistic.tools.DLParser;
 
@@ -16,6 +17,7 @@ public class EntriesServlet extends javax.servlet.http.HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         RequestDispatcher view = request.getRequestDispatcher("/templates/entries.jsp");
         Entry entry = DLParser.getEntry(94);
+        HibernateDaoFactory.getEntryDao().persist(entry);
         request.setAttribute("entry", entry);
         request.setAttribute("urlPattern", URL_PATTERN);
         view.forward(request, response);
