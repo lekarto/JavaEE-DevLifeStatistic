@@ -53,11 +53,11 @@ ul.menu {
 }
 /*    LOGO    */
 .logo {
-     font-family: 'Arial', sans-serif;
-     font-size: 32px;
-     float: left;
+    font-family: 'Arial', sans-serif;
+    font-size: 32px;
+    float: left;
     margin-top: 5px;
- }
+}
 .logo a {
     text-decoration: none;
     color: darkblue;
@@ -73,4 +73,18 @@ ul.menu {
 .none {
     float: none;
     clear: both;
+}
+/*  COMMENTS    */
+#comments .comment {
+    padding-left: 15px;
+    font-size: 17px;
+    padding-bottom: 7px;
+    font-family: arial, sans-serif;
+}
+#comments .comment .content .text {
+    font-size: 21px;
+    color: #008000;
+}
+#comments .comment .author, .comment .date, .comment .time, .comment .rating{
+    color: #585858;
 }
