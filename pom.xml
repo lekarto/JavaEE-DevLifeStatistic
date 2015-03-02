@@ -28,6 +28,12 @@
     </properties>
     <build>
         <finalName>devlifestatistic</finalName>
+        <resources>
+            <resource>
+                <filtering>true</filtering>
+                <directory>src/main/resources</directory>
+            </resource>
+        </resources>
         <plugins>
             <!-- Idea Project -->
             <plugin>
