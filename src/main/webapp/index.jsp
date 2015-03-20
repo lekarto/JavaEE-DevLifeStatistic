@@ -2,10 +2,10 @@
 <html>
   <head>
     <title>DevelopersLife Statistic</title>
-    <link rel="shortcut icon" href="/devlifestatistic/images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" type="text/css" href="/devlifestatistic/css/main.css">
-    <script src="/devlifestatistic/libs/jQuery/jquery-1.11.2.min.js"></script>
-    <script src="/devlifestatistic/js/functions.js"></script>
+    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="libs/jQuery/jquery-1.11.2.min.js"></script>
+    <script src="js/functions.js"></script>
   </head>
 
   <body>
